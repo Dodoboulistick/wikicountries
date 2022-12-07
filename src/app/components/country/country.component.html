@@ -1,0 +1,37 @@
+<main>
+
+  <section id="header">
+    <img src="{{country?.flags?.svg}}" alt="{{ country?.translations?.['fra']?.common }}'s flag">
+    <h1>{{ country?.translations?.['fra']?.common }}</h1>
+  </section>
+
+  <section id="content">
+    <mat-card id="card">
+      <mat-card-header>
+        <mat-card-title>Informations</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="left-content">
+          <p><strong>Capitale:</strong> {{ country?.capital }}</p>
+          <p><strong>Region:</strong> {{ country?.region }}</p>
+          <p><strong>Population:</strong> {{ country?.population }} habitants</p>
+          <p><strong>Superficie:</strong> {{ country?.area }} km<sup>2</sup></p>
+          <p><strong>Status:</strong> {{ country?.status }}</p>
+          <p><strong>Area:</strong> {{ country?.area }}</p>
+        </div>
+        <div class="right-content">
+          <strong>Langues:</strong>
+          <ul>
+            <li *ngFor="let lang of langs">{{ lang }}</li>
+          </ul>
+          <strong>Monnaies:</strong>
+          <ul>
+            <li *ngFor="let cur of currencies">{{ cur }}</li>
+          </ul>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <img src="https://maps.googleapis.com/maps/api/staticmap?center={{ coord[0] }},{{ coord[1] }}&zoom=4&size=400x400&key={{mapsKey}}">
+  </section>
+</main>
+
